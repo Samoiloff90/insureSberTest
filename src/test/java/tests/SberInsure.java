@@ -62,6 +62,12 @@ public class SberInsure extends TestBase{
             $x("//*[@class='s-header__actions-item s-header__profile']").click();
         });
 
+        step("Проверка загрузки страницы личного кабинета", () -> {
+            switchTo().window(1);
+            $x("//*[@id='kc-login']").shouldBe(visible);
+        });
+
+
         step("Кликнуть на кнопку 'Дальше'", () -> {
             $x("//*[@id='kc-login']").click();
         });
@@ -71,6 +77,5 @@ public class SberInsure extends TestBase{
         });
 
     }
-
 
 }
