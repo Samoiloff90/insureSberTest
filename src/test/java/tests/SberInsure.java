@@ -90,7 +90,7 @@ public class SberInsure extends TestBase{
         });
 
         step("Ввести номер из 9 цифр", () -> {
-            $("[data-test-id='phoneInput']").setValue("111111111");
+            $("//input[@id='mobilePhone']").setValue("111111111");
         });
 
         step("Кликнуть на кнопку 'Дальше'", () -> {
