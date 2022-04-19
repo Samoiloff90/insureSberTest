@@ -39,7 +39,7 @@ public class SberInsure extends TestBase{
     void checkTitleAutoInsurance() {
 
         step("Клик по кнопке Автострахование", () -> {
-            $("//a[text()='Автострахование']").shouldBe(visible).click();
+            $x("//a[text()='Автострахование']").shouldBe(visible).click();
 //            $("//a[text()='Автострахование']").click();
         });
 
@@ -56,7 +56,7 @@ public class SberInsure extends TestBase{
     void checkAlertVoidPhone() {
 
         step("Клик по кнопке 'Личный кабинет'", () -> {
-            $("//*[@class='s-header__actions-item s-header__profile']").shouldBe(visible).click();
+            $x("//*[@class='s-header__actions-item s-header__profile']").click();
         });
 
         step("Кликнуть на кнопку 'Дальше'", () -> {
@@ -64,7 +64,7 @@ public class SberInsure extends TestBase{
         });
 
         step("Проверка алерта телефона", () -> {
-            $("//*[@id='phone-validation-msg']").shouldHave(text("Введите номер телефона."));
+            $x("//*[@id='phone-validation-msg']").shouldHave(text("Введите номер телефона."));
         });
 
     }
