@@ -35,7 +35,7 @@ public class TestBase {
     void openSberInsure() {
         step("Открыть сайт sber.insure", () -> {
             open("https://sber.insure/");
-        })
+        });
     }
 
     @AfterEach
