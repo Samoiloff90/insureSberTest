@@ -67,7 +67,6 @@ public class SberInsure extends TestBase{
             $x("//*[@id='kc-login']").shouldBe(visible);
         });
 
-
         step("Кликнуть на кнопку 'Дальше'", () -> {
             $x("//*[@id='kc-login']").click();
         });
@@ -75,7 +74,31 @@ public class SberInsure extends TestBase{
         step("Проверка алерта телефона", () -> {
             $x("//*[@id='phone-validation-msg']").shouldHave(text("Введите номер телефона."));
         });
-
     }
 
+    @Test
+    @DisplayName("Проверка алерта при входе в личный кабинет с пустым телефоном")
+    void checkAlertIncompletePhone() {
+
+        step("Клик по кнопке 'Личный кабинет'", () -> {
+            $x("//*[@class='s-header__actions-item s-header__profile']").click();
+        });
+
+        step("Проверка загрузки страницы личного кабинета", () -> {
+            switchTo().window(1);
+            $x("//*[@id='kc-login']").shouldBe(visible);
+        });
+
+        step("Ввести номер из 9 цифр", () -> {
+            $("[data-test-id='phoneInput']").setValue("111111111");
+        });
+
+        step("Кликнуть на кнопку 'Дальше'", () -> {
+            $x("//*[@id='kc-login']").click();
+        });
+
+        step("Проверка алерта телефона", () -> {
+            $x("//*[@id='phone-validation-msg']").shouldHave(text("Неверно указан номер телефона."));
+        });
+    }
 }
