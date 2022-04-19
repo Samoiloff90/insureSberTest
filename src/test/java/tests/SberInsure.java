@@ -4,6 +4,7 @@ import helpers.DriverUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,7 +39,8 @@ public class SberInsure extends TestBase{
     void checkTitleAutoInsurance() {
 
         step("Клик по кнопке Автострахование", () -> {
-            $("//a[text()='Автострахование']").click();
+            $("//a[text()='Автострахование']").shouldBe(visible).click();
+//            $("//a[text()='Автострахование']").click();
         });
 
         step("title страницы должен быть: 'Автострахование • Страхование автомобиля, стоимость страховки авто'", () -> {
@@ -53,8 +55,8 @@ public class SberInsure extends TestBase{
     @DisplayName("Проверка алерта при входе в личный кабинет с пустым телефоном")
     void checkAlertVoidPhone() {
 
-        step("Клик по кнопке Автострахование", () -> {
-            $("//*[@class='s-header__actions-item s-header__profile']").click();
+        step("Клик по кнопке 'Личный кабинет'", () -> {
+            $("//*[@class='s-header__actions-item s-header__profile']").shouldBe(visible).click();
         });
 
         step("Кликнуть на кнопку 'Дальше'", () -> {
@@ -66,7 +68,6 @@ public class SberInsure extends TestBase{
         });
 
     }
-
 
 
 }
