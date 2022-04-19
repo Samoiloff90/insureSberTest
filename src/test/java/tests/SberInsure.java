@@ -77,7 +77,7 @@ public class SberInsure extends TestBase{
     }
 
     @Test
-    @DisplayName("Проверка алерта при входе в личный кабинет с пустым телефоном")
+    @DisplayName("Проверка алерта при входе в личный кабинет с телефоном короче 10 цифр")
     void checkAlertIncompletePhone() {
 
         step("Клик по кнопке 'Личный кабинет'", () -> {
@@ -90,7 +90,7 @@ public class SberInsure extends TestBase{
         });
 
         step("Ввести номер из 9 цифр", () -> {
-            $("//input[@id='mobilePhone']").setValue("111111111");
+            $x("//input[@id='mobilePhone']").setValue("111111111");
         });
 
         step("Кликнуть на кнопку 'Дальше'", () -> {
